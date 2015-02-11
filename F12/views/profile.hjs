@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>[[ title ]]</title>
+        <script type="text/javascript" src="/javascripts/angular.js"></script>
+        <script type="text/javascript" src="/javascripts/angular-route.js"></script>
+        <script type="text/javascript" src="/javascripts/myapp_ng.js"></script>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        </head>
+    <body ng-app="myapp">
+        <div data-ng-controller="myappCtrl">
+            <script type="text/ng-template" id="profile.html">
+                <input id="fileinput" type="file" file-model="myFile" accept='image/*' style="display:none"/>
+            Profile Photo: 
+                <br/><br/> <br/>
+                <input type="button" value="Change DP" onclick="document.getElementById('fileinput').click();">
+                <div id="holder">
+                    <img id="myImg" src="#" alt="No Image" />
+                </div>
+
+            </script>
+        </div>
+
+        <div ng-view>
+
+        </div>
+  </body>
+</html>

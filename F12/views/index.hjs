@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>[[ title ]]</title>
+    <script type="text/javascript" src="/javascripts/angular.js"></script>
+    <script type="text/javascript" src="/javascripts/angular-route.js"></script>
+    <script type="text/javascript" src="/javascripts/myapp_ng.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body ng-app="myapp">
+    <h1>[[ title ]]</h1>
+    <p>Welcome to [[ title ]]</p>
+
+    <div ng-controller="myappCtrl">
+    	<p> {{testdata}} </p>
+    	<input type="text" ng-model="username"> {{username}}
+    	<script type="text/ng-template" id="home.html">
+    	Page1 :)  
+		{{testdata}}
+        // <a href="/profiles/#{{profileid}}"> Take me to my profile </a>
+        <a href="/profiles/#[[ id ]]"> Take me to my profile </a>
+    	</script>
+
+    </div> 
+
+
+    <ng-view>
+    	
+    </ng-view>
+
+
+  </body>
+</html>
