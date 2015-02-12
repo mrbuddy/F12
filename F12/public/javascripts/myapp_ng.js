@@ -4,7 +4,7 @@ myapp.run(function($rootScope){
 $rootScope.testdata = "Root - Data from angular";
 });
 
-
+//hello
 myapp.config(["$routeProvider", function($routeProvider){
 	$routeProvider
 	.when('/',{
