@@ -7,8 +7,10 @@ var bodyParser = require('body-parser');
 
 //db set up
 var mongo = require('mongodb');
-var db = require('monk')('localhost:27017/F12');
+var mongoskin = require('mongoskin');
+var db = mongoskin.db('mongodb://localhost:27017/F12');
 //var db = monk;
+DEBUG="monk:queries"
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
