@@ -9,24 +9,23 @@
   </head>
   <body ng-app="myapp">
     <h1>[[ title ]]</h1>
-    <p>Welcome to [[ title ]]</p>
+    <p>[[oneliner]]</p>
 
-    <div ng-controller="myappCtrl">
+    <div ng-controller="myappCtrl" ng-init>
     	<p> {{testdata}} </p>
     	<input type="text" ng-model="username"> {{username}}
-    	<script type="text/ng-template" id="home.html">
-    	Page1 :)  
-		{{testdata}}
-        // <a href="/profiles/#{{profileid}}"> Take me to my profile </a>
-        <a href="/profiles/#[[ id ]]"> Take me to my profile </a>
-    	</script>
-
-    </div> 
-
-
-    <ng-view>
+    	<div class = "post" ng-repeat="item in posts">
+            <h3>{{item.name}}</h3>
+            <span class="type">{{item.type}}</span>
+            <em>Rs.{{item.price}}/em>
+        </div>
     	
-    </ng-view>
+    </div>
+
+
+    <div ng-view = "friends">
+    	
+    </div ng-view>
 
 
   </body>
