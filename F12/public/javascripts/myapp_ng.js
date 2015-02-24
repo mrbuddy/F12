@@ -7,16 +7,8 @@ $rootScope.testdata = "Root - Data from angular";
 //hello
 myapp.config(["$routeProvider", function($routeProvider){
 	$routeProvider
-	.when('/',{
-		templateUrl : "home.html",
-		controller : "myappCtrl"
-	})
 	.when('/:id',{
 		templateUrl : "profile.html",
-		controller : "myappCtrl"
-	})
-	.otherwise({
-		templateUrl : "home.html",
 		controller : "myappCtrl"
 	});
 }
@@ -52,9 +44,13 @@ function imageIsLoaded(e) {
     //$('#myImg').attr('background-image', e.target.result);
 };
 
-myapp.controller("myappCtrl",["$scope",
-	function($scope)
+myapp.controller("myappCtrl",["$scope",'$http',
+	function($scope,$http)
 	{
+		 $http.get('/myposts').then(function(res){
+		 	$scope.posts = res.data;
+		 });
+		console.log($scope.posts);
 		$scope.testdata = "Data from Angular JS";
 		$scope.profileid = "M56";
 		// var file = $scope.myFile;
