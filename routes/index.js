@@ -36,10 +36,15 @@ router.get('/friends_posts',function(req,res,next){
 	
 	collection.find({username:current_user}).toArray(function(e,doc){
 			//console.log(doc[0].friends[0]);
+			if(doc) {
 			collection.find({username:{$in:doc[0].friends[0]}}).toArray(function(e,d){
+			
 			res.json(d);
 				
 			});
+		} else {
+			res.sendStatus(200);
+		}
 	});
 	//	res.render('post',table.find());/*
 	//table.insert({'username': "mohan",'type':'household','name':'football'});
