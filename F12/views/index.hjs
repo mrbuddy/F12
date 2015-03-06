@@ -8,18 +8,48 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body ng-app="myapp">
-    <h1>[[ title ]]</h1>
-    <p>[[oneliner]]</p>
-
+    <div class="banner">
+        <h1>[[ title ]]</h1>
+        <p>[[oneliner]]</p>
+    </div>
     <div ng-controller="myappCtrl" ng-init>
     	<p> {{testdata}} </p>
-    	<input type="text" ng-model="username"> {{username}}
+    	<input type="text" ng-model="username"/> {{username}}
+
     	<div class = "post" ng-repeat="item in posts">
-            <h3>{{item.name}}</h3>
-            <span class="type">{{item.type}}</span>
-            <em>Rs.{{item.price}}/em>
+                <div class="flippingdiv"></div>
+                <div class="front">
+                    <h3>{{item.name}}</h3>
+                    <span class="type">{{item.type}}</span>
+                    <em>Rs.{{item.price}}</em>
+                </div>
+                <div class="back">
+                    <div class="flib-back"></div>
+                    <div class="request-form">
+                    Back face
+                    </div>
+                </div>
         </div>
-    	
+        <div>Friend's Post
+                <div class="post" ng-repeat="item in friends_posts">
+                        <div ng-class="{flipped:isflipped}" >
+                            <div class="front">
+                                <div ng-click = "isflipped=!isflipped">flipme</div>
+                                <h3>{{item.name}}</h3>
+                                <span class="type">{{item.type}}</span>
+                                <em>Rs.{{item.price}}</em><br>
+                                postedby : {{item.username}}
+                            </div>
+                            <div class="back">
+                                <div ng-click = "isflipped=!isflipped">flipmeBack</div>
+                                <div class="request-form">
+                                Back face
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 

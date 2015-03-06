@@ -47,12 +47,16 @@ function imageIsLoaded(e) {
 myapp.controller("myappCtrl",["$scope",'$http',
 	function($scope,$http)
 	{
-		 $http.get('/myposts').then(function(res){
+		 $http.get('/myposts',{params:{username: 'venkatesh'}}).then(function(res){
 		 	$scope.posts = res.data;
 		 });
 		console.log($scope.posts);
 		$scope.testdata = "Data from Angular JS";
 		$scope.profileid = "M56";
+		
+		$http.get('/friends_posts',{params:{username:'venkatesh'}}).then(function(res){
+				$scope.friends_posts = res.data;
+		});
 		// var file = $scope.myFile;
 		// console.log(file);
 		// if(file !== undefined){
